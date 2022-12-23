@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import moviesRouter from "./routers/movies-router.js";
+
 const app = express();
 app.use(cors());
 dotenv.config();
