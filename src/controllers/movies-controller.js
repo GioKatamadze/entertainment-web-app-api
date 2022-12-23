@@ -1,6 +1,6 @@
 import pool from "../config/dataBase.js";
 
-const GetAllMovies = async (req, res) => {
+const getAllMovies = async (req, res) => {
   try {
     const allMovies = await pool.query("SELECT * FROM movies");
     res.json(allMovies.rows);
@@ -9,4 +9,4 @@ const GetAllMovies = async (req, res) => {
   }
 };
 
-export default GetAllMovies;
+export default getAllMovies;

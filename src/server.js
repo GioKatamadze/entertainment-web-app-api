@@ -2,12 +2,13 @@ import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
-import moviesRouter from "./routers/movies-router.";
-
+import moviesRouter from "./routers/movies-router.js";
 const app = express();
+app.use(cors());
+dotenv.config();
 
-app.use(bodyParser.json());
+app.use(express.json());
 
-app.use("/api", cors(), moviesRouter);
+app.use("/api", moviesRouter);
 
-app.listen(5000);
+app.listen(3000);
