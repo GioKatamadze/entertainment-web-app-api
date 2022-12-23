@@ -7,10 +7,11 @@ import moviesRouter from "./routers/movies-router.js";
 import usersRouter from "./routers/users-router.js";
 
 const app = express();
-app.use(cors());
 dotenv.config();
+app.use(cors());
 
 app.use(bodyParser.json());
+app.use("/images", express.static("public/storage"));
 
 app.use("/api", usersRouter);
 app.use("/api", moviesRouter);
