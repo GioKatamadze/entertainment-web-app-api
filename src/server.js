@@ -18,4 +18,6 @@ app.use("/api", usersRouter);
 app.use("/api", moviesRouter);
 app.use("/", swaggerMiddleware);
 
-app.listen(process.env.PORT || 5000);
+app.listen(
+  "https://entertainment-web-app-api-production.up.railway.app" || 5000
+);
