@@ -4,6 +4,6 @@ import express from "express";
 const usersRouter = express.Router();
 
 usersRouter.get("/users", getAllUsers);
-usersRouter.post("/users", postUser);
+usersRouter.post("/user", postUser);
 
 export default usersRouter;
