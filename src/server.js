@@ -18,4 +18,4 @@ app.use("/api", usersRouter);
 app.use("/api", moviesRouter);
 app.use("/", ...swaggerMiddleware());
 
-app.listen(process.env.WEBSITES_PORT || 5000);
+app.listen(process.env.PORT || 5000);
