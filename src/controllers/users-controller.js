@@ -13,10 +13,12 @@ export const postUser = async (req, res) => {
   try {
     const { user_id, user_email, user_password } = req.body;
     const user = await pool.query(
-      `INSERT INTO users (user_id, user_email, user_password) VALUES($1, $2, $3) RETURNING *`,
+      `INSERT INTO users (user_id, user_email, user_password)` +
+        `VALUES($1, $2, $3) RETURNING *`,
       [user_id, user_email, user_password]
     );
     res.json(user.rows);
+    pool.end;
   } catch (error) {
     console.log(error.message);
   }
