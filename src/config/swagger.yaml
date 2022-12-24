@@ -48,16 +48,13 @@ paths:
             schema:
               type: object
               properties:
-                user_id:
-                  type: string
                 user_email:
                   type: string
                 user_password:
                   type: string
             example:
-              user_id: ""
-              user_email: Don't use nodemon on server@example.com
-              user_password: Don't use nodemon on server
+              user_email: test_email@example.com
+              user_password: test123
       responses:
         "200":
           description: user created

@@ -1,6 +1,6 @@
 import pool from "../config/dataBase.js";
 
-export const getAllUsers = async (req, res) => {
+export const getAllUsers = async (_, res) => {
   try {
     const allUsers = await pool.query("SELECT * FROM users");
     res.json(allUsers.rows);
@@ -11,11 +11,11 @@ export const getAllUsers = async (req, res) => {
 
 export const postUser = async (req, res) => {
   try {
-    const { user_id, user_email, user_password } = req.body;
+    const { user_email, user_password } = req.body;
     const user = await pool.query(
-      `INSERT INTO users (user_id, user_email, user_password)` +
-        `VALUES($1, $2, $3) RETURNING *`,
-      [user_id, user_email, user_password]
+      `INSERT INTO users (user_email, user_password)` +
+        `VALUES($1, $2) RETURNING *`,
+      [user_email, user_password]
     );
     res.json(user.rows);
     pool.end;
