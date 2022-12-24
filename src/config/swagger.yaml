@@ -49,7 +49,7 @@ paths:
               type: object
               properties:
                 user_id:
-                  type: number
+                  type: string
                 user_email:
                   type: string
                 user_password:
@@ -60,4 +60,4 @@ paths:
               user_password: Don't use nodemon on server
       responses:
         "200":
-          description: feedback created
+          description: user created
