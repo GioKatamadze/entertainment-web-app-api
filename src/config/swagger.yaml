@@ -1,0 +1,63 @@
+openapi: 3.0.0
+info:
+  title: Product-feedback
+  description: Product-feedback app API
+  version: 0.1.9
+
+servers:
+  - url: https://entertainment-web-app-api-production.up.railway.app/api
+    description: production server
+  - url: http://localhost:5000/api
+    description: local server
+paths:
+  /movies:
+    get:
+      tags:
+        - Movies
+      responses:
+        "200":
+          description: Successfully fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /users:
+    get:
+      tags:
+        - Users
+      responses:
+        "200":
+          description: Successfully fetched
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /users:
+    post:
+      tags:
+        - Users
+      requestBody:
+        description: create user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: number
+                user_email:
+                  type: string
+                user_password:
+                  type: string
+            example:
+              user_id: Node is awesome
+              user_email: Don't use nodemon on server@example.com
+              user_password: Don't use nodemon on server
+      responses:
+        "200":
+          description: feedback created
