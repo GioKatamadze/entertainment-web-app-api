@@ -16,6 +16,6 @@ app.use("/images", express.static("public/storage"));
 
 app.use("/api", usersRouter);
 app.use("/api", moviesRouter);
-app.use("/", swaggerMiddleware);
+app.use("/", ...swaggerMiddleware());
 
 app.listen(process.env.PORT || 5000);
