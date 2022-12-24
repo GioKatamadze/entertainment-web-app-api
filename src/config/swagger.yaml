@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: Product-feedback
-  description: Product-feedback app API
+  title: Entertainment Web App
+  description: Entertainment Web App API
   version: 0.1.9
 
 servers:
