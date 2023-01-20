@@ -12,7 +12,8 @@ dotenv.config();
 app.use(cors());
 
 app.use(bodyParser.json());
-app.use("/images", express.static("public/storage"));
+app.use("/regular", express.static("public/storage/regular"));
+app.use("/trending", express.static("public/storage/trending"));
 
 app.use("/api", usersRouter);
 app.use("/api", moviesRouter);
