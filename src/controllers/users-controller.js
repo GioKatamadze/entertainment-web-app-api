@@ -13,10 +13,9 @@ export const signUp = async (req, res) => {
   try {
     const email = req.body.email;
     const password = req.body.password;
-    const cryptedPassword = bcrypt.hashSync(password, 8);
     const user = await pool.query(
       `INSERT INTO users (email, password)` + `VALUES($1, $2) RETURNING *`,
-      [email, cryptedPassword]
+      [email, password]
     );
     res.json(user.rows);
     pool.end;
