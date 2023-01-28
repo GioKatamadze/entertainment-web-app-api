@@ -48,11 +48,14 @@ paths:
             schema:
               type: object
               properties:
+                id:
+                  type: number
                 email:
                   type: string
                 password:
                   type: string
             example:
+              id:
               email: test_email@example.com
               password: test123
       responses:
