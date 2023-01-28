@@ -4,7 +4,6 @@ import {
   signIn,
 } from "../controllers/users-controller.js";
 import express from "express";
-// import { checkDuplicateEmail } from "../middlewares/verifySignUp.js";
 
 const usersRouter = express.Router();
 
