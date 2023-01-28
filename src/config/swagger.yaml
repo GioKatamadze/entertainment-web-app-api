@@ -36,7 +36,7 @@ paths:
                 type: array
                 items:
                   type: string
-  /user:
+  /auth/signup:
     post:
       tags:
         - Users
@@ -48,13 +48,35 @@ paths:
             schema:
               type: object
               properties:
-                user_email:
+                email:
                   type: string
-                user_password:
+                password:
                   type: string
             example:
-              user_email: test_email@example.com
-              user_password: test123
+              email: test_email@example.com
+              password: test123
+      responses:
+        "200":
+          description: user created
+  /auth/signin:
+    post:
+      tags:
+        - Users
+      requestBody:
+        description: create user
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+            example:
+              email: test_email@example.com
+              password: test123
       responses:
         "200":
           description: user created
