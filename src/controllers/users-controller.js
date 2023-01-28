@@ -11,10 +11,12 @@ export const getAllUsers = async (_, res) => {
 
 export const signUp = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const email = req.body.email;
+    const password = req.body.password;
+    const cryptedPassword = bcrypt.hashSync(password, 8);
     const user = await pool.query(
       `INSERT INTO users (email, password)` + `VALUES($1, $2) RETURNING *`,
-      [email, bcrypt.hashSync(password, 8)]
+      [email, cryptedPassword]
     );
     res.json(user.rows);
     pool.end;
