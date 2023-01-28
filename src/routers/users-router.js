@@ -4,7 +4,7 @@ import {
   signIn,
 } from "../controllers/users-controller.js";
 import express from "express";
-import { checkDuplicateEmail } from "../middlewares/verifySignUp.js";
+// import { checkDuplicateEmail } from "../middlewares/verifySignUp.js";
 
 const usersRouter = express.Router();
 
@@ -16,7 +16,7 @@ usersRouter.use(function (req, res, next) {
   next();
 });
 
-usersRouter.post("/auth/signup", checkDuplicateEmail, signUp);
+usersRouter.post("/auth/signup", signUp);
 usersRouter.post("/auth/signin", signIn);
 usersRouter.get("/users", getAllUsers);
 
