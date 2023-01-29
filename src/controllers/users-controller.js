@@ -34,7 +34,7 @@ async function getUser(email) {
 //
 
 export const signUp = (request, response) => {
-  const { id, email, password } = request.body;
+  const { email, password } = request.body;
 
   isUserExists(email).then(
     (isExists) => {
@@ -50,8 +50,8 @@ export const signUp = (request, response) => {
         }
 
         pool.query(
-          "INSERT INTO users (id, email, password) VALUES ($1, $2, $3)",
-          [id, email, encryptedPassword],
+          "INSERT INTO users (email, password) VALUES ($1, $2)",
+          [email, encryptedPassword],
           (error) => {
             if (error) {
               return response
